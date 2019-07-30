@@ -173,8 +173,8 @@ def startScreen():
 
 
 def game(aiOrnot):
-    theball = Ball()
-    pball = FastBall(theball.xMovement,theball.yMovement,2)
+    theball = Ball(100)
+    pball = FastBall(theball.xMovement,theball.yMovement,200)
     pball.place()
     listnumber=0
     theball.place()
@@ -182,7 +182,7 @@ def game(aiOrnot):
     paddle2 = Paddle((1880,500))
     pygame.key.set_repeat(1)
     while 1:
-        global location
+        global location,display_height
         textSize=100
         paddle1.place()
         paddle2.place()
@@ -220,7 +220,7 @@ def game(aiOrnot):
                     paddle1.move('up')
                 if theball.ball_rect.center[0] <= 20:
                     print('hi')
-                    location=[]
+                    location=[display_height/2]
                 if not len(location)>=listnumber+1:
                     listnumber+=1
                     print(listnumber)
