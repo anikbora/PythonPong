@@ -83,10 +83,10 @@ class FastBall(Ball):
         print(a1, b1, a2, b2)
         print(self.ball_rect.center)
         screen.fill((0, 0, 0), self.ball_rect)
-        if self.ball_rect.center[0] <= 30:
+        if a1<=self.ball_rect.center[0]<=a2:
             location[0]=(self.ball_rect.center[1])
             self.direction_x = -self.direction_x
-        if self.ball_rect.center[0] >= 1880:
+        if x1<=self.ball_rect.center[0]<=x2:
             self.direction_x = -self.direction_x
         if self.ball_rect.top <= 0 or self.ball_rect.bottom >= display_height:
             self.direction_y = -self.direction_y
@@ -173,8 +173,8 @@ def startScreen():
 
 
 def game(aiOrnot):
-    theball = Ball(100)
-    pball = FastBall(theball.xMovement,theball.yMovement,200)
+    theball = Ball(1)
+    pball = FastBall(theball.xMovement,theball.yMovement,2)
     pball.place()
     listnumber=0
     theball.place()
@@ -231,3 +231,4 @@ def game(aiOrnot):
             theball.reset()
             pball.reset(theball.xMovement,theball.yMovement)
         pball.move(paddle1.paddle_rect, paddle2.paddle_rect)
+
